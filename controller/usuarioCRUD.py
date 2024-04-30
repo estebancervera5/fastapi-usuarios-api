@@ -2,6 +2,7 @@ from fastapi import HTTPException, APIRouter
 from db.db import collection
 from model.usuario import Usuario
 
+
 router = APIRouter()
 @router.post("/", response_description="Crear un nuevo usuario", response_model= Usuario)
 async def create_usuario(usuario: Usuario):
@@ -12,7 +13,7 @@ async def create_usuario(usuario: Usuario):
     usuario._id = str(result.inserted_id)
     return usuario
 
-@router.get("/", response_description="Listar usuarios", response_model=List[Usuario])
+@router.get("/", response_description="Listar usuarios", response_model=list[Usuario])
 async def read_usuarios():  
     usuarios = await collection.find().to_list(100)
     for usuario in usuarios:

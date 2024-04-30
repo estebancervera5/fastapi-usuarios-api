@@ -1,4 +1,4 @@
-port certifi
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from dotenv import load_dotenv
