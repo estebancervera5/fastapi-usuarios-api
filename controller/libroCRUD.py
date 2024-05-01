@@ -22,7 +22,7 @@ async def read_libros():
 
 @router.get("/{isbn}", response_model=Libro)
 async def find_libro_by_isbn(isbn: str):
-    isbn = await collection.find_one({"isbn": isbn})
+    libro = await collection.find_one({"isbn": isbn})
 
     if libro:
         return libro
